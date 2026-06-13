@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DealHunter — Лучшие скидки России</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0A0A0F;
+  color: #E8E4F0;
+  line-height: 1.6;
+}
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.15) 0%, transparent 60%);
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 0 40px rgba(139,92,246,0.3);
+}
+h1 {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+h1 span { color: #8B5CF6; }
+.tagline {
+  color: #8B5CF6;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+.subtitle {
+  font-size: 20px;
+  color: #9CA3AF;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #8B5CF6;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(139,92,246,0.4);
+}
+.cta:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(139,92,246,0.5); }
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stat { text-align: center; }
+.stat-num { font-size: 36px; font-weight: 900; color: #8B5CF6; }
+.stat-label { font-size: 14px; color: #6B7280; margin-top: 4px; }
+
+.features {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.features h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 48px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #12121A;
+  border: 1px solid #1E1E2E;
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: #8B5CF644; }
+.card-icon { font-size: 32px; margin-bottom: 12px; }
+.card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.card p { font-size: 14px; color: #9CA3AF; }
+
+.stores {
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 1px solid #1E1E2E;
+}
+.stores h2 { font-size: 28px; font-weight: 800; margin-bottom: 32px; }
+.store-list {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+.store-item {
+  background: #12121A;
+  border: 1px solid #1E1E2E;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6B7280;
+  font-size: 13px;
+  border-top: 1px solid #1E1E2E;
+}
+.footer a { color: #8B5CF6; text-decoration: none; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 32px; }
+  .subtitle { font-size: 16px; }
+  .stats { gap: 24px; }
+  .stat-num { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img src="icon.png" alt="DealHunter" class="logo">
+  <h1>Deal<span>Hunter</span></h1>
+  <div class="tagline">Лучшие скидки России</div>
+  <p class="subtitle">
+    Все скидки с маркетплейсов, игровых платформ и сервисов путешествий — в одном приложении. Сравнивай цены, отслеживай падение и не упускай выгоду.
+  </p>
+  <a href="#features" class="cta">Скачать бесплатно</a>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">1000+</div>
+      <div class="stat-label">Скидок ежедневно</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Магазинов</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0 ₽</div>
+      <div class="stat-label">Бесплатно</div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <h2>Возможности</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">🔥</div>
+      <h3>Горящие скидки</h3>
+      <p>Скидки от 50% — видишь первым. Лучшая скидка дня каждый день на главном экране.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔔</div>
+      <h3>Уведомления о снижении цены</h3>
+      <p>Установи порог цены — мы отправим push когда товар подешевеет до нужной суммы.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏪</div>
+      <h3>Сравнение цен</h3>
+      <p>Один товар — несколько магазинов. Сразу видно где дешевле: на Ozon, WB или Яндекс Маркете.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>История цен</h3>
+      <p>График изменения цены — убедись что скидка настоящая, а не накрученная.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h3>Умный поиск</h3>
+      <p>Фильтр по цене, категориям и сортировка. Находи именно то что нужно за секунды.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎮</div>
+      <h3>Игры бесплатно</h3>
+      <p>Раздачи в Steam, Epic Games — все бесплатные игры в одном месте. Не пропустишь ни одну.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stores">
+  <h2>Магазины</h2>
+  <div class="store-list">
+    <div class="store-item">🟦 Ozon</div>
+    <div class="store-item">🟪 Wildberries</div>
+    <div class="store-item">✈️ Aviasales</div>
+    <div class="store-item">🎮 Steam</div>
+    <div class="store-item">⚡ Epic Games</div>
+    <div class="store-item">🏠 Авито</div>
+    <div class="store-item">🟡 Яндекс Путешествия</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>DealHunter &copy; 2025. Агрегатор скидок — мы не продаём товары, а помогаем найти лучшую цену.</p>
+  <p style="margin-top: 8px;"><a href="https://ultiyskadbkrdenzxyym.supabase.co/functions/v1/privacy">Политика конфиденциальности</a></p>
+</footer>
+
+</body>
+</html>
