@@ -12,6 +12,8 @@ body {
   color: #E8E4F0;
   line-height: 1.6;
 }
+
+/* Hero */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -23,114 +25,168 @@ body {
   background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.15) 0%, transparent 60%);
 }
 .logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 24px;
+  width: 100px; height: 100px; border-radius: 24px;
   margin-bottom: 24px;
   box-shadow: 0 0 40px rgba(139,92,246,0.3);
 }
-h1 {
-  font-size: 48px;
-  font-weight: 900;
-  letter-spacing: -1px;
-  margin-bottom: 8px;
-}
+h1 { font-size: 48px; font-weight: 900; letter-spacing: -1px; margin-bottom: 8px; }
 h1 span { color: #8B5CF6; }
 .tagline {
-  color: #8B5CF6;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 24px;
+  color: #8B5CF6; font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px;
 }
-.subtitle {
-  font-size: 20px;
-  color: #9CA3AF;
-  max-width: 500px;
-  margin-bottom: 40px;
+.subtitle { font-size: 20px; color: #9CA3AF; max-width: 500px; margin-bottom: 32px; }
+.rustore-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #0066FF, #00C8FF);
+  color: #fff; padding: 14px 28px; border-radius: 14px;
+  font-size: 17px; font-weight: 800; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,102,255,0.3);
+  margin-bottom: 12px;
+  transition: transform 0.2s;
 }
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #8B5CF6;
-  color: #fff;
-  padding: 16px 32px;
-  border-radius: 16px;
-  font-size: 18px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(139,92,246,0.4);
+.rustore-badge:hover { transform: translateY(-2px); }
+.coming-soon {
+  font-size: 13px; color: #6B7280; margin-bottom: 40px;
 }
-.cta:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(139,92,246,0.5); }
 .stats {
-  display: flex;
-  gap: 40px;
-  margin-top: 60px;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: flex; gap: 40px; margin-top: 40px;
+  flex-wrap: wrap; justify-content: center;
 }
 .stat { text-align: center; }
 .stat-num { font-size: 36px; font-weight: 900; color: #8B5CF6; }
 .stat-label { font-size: 14px; color: #6B7280; margin-top: 4px; }
 
+/* Phone mockups */
+.phones {
+  padding: 60px 20px 80px;
+  max-width: 1000px; margin: 0 auto;
+  display: flex; gap: 40px; justify-content: center;
+  flex-wrap: wrap;
+}
+.phone {
+  width: 240px; height: 480px;
+  background: #12121A;
+  border-radius: 32px;
+  border: 3px solid #2A2A3A;
+  padding: 16px 14px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.phone::before {
+  content: '';
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 60px; height: 6px; border-radius: 3px;
+  background: #2A2A3A;
+}
+.phone-header {
+  margin-top: 12px; margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.phone-logo { font-size: 14px; font-weight: 900; }
+.phone-logo span { color: #8B5CF6; }
+.phone-icons { display: flex; gap: 6px; }
+.phone-icon {
+  width: 22px; height: 22px; border-radius: 11px;
+  background: #1E1E2E; display: flex; align-items: center;
+  justify-content: center; font-size: 10px;
+}
+.phone-cats {
+  display: flex; gap: 6px; margin-bottom: 10px; overflow: hidden;
+}
+.phone-cat {
+  padding: 4px 10px; border-radius: 20px;
+  font-size: 10px; font-weight: 600; white-space: nowrap;
+  background: #1E1E2E; color: #9CA3AF;
+}
+.phone-cat.active { background: rgba(139,92,246,0.15); color: #8B5CF6; border: 1px solid rgba(139,92,246,0.3); }
+.phone-deal {
+  background: #1E1E2E; border-radius: 12px;
+  padding: 10px; margin-bottom: 8px;
+}
+.phone-deal-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.phone-deal-store { font-size: 9px; color: #6B7280; text-transform: uppercase; font-weight: 700; }
+.phone-deal-badge {
+  font-size: 8px; padding: 2px 6px; border-radius: 8px;
+  background: rgba(251,113,133,0.2); color: #FB7185; font-weight: 800;
+}
+.phone-deal-title { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
+.phone-deal-price { font-size: 13px; font-weight: 900; color: #8B5CF6; }
+.phone-deal-old { font-size: 10px; color: #6B7280; text-decoration: line-through; margin-left: 6px; }
+.phone-section { font-size: 11px; font-weight: 800; margin: 10px 0 6px; }
+.phone-search {
+  background: #1E1E2E; border-radius: 10px; padding: 8px 12px;
+  font-size: 11px; color: #6B7280; margin-bottom: 10px;
+  border: 1px solid #2A2A3A;
+}
+.phone-filter-row {
+  display: flex; gap: 6px; margin-bottom: 10px;
+}
+.phone-filter {
+  padding: 4px 10px; border-radius: 20px;
+  font-size: 9px; font-weight: 700; white-space: nowrap;
+  background: #1E1E2E; color: #9CA3AF;
+}
+.phone-filter.accent { background: rgba(139,92,246,0.15); color: #8B5CF6; }
+.phone-compare {
+  background: #1E1E2E; border-radius: 10px; padding: 10px;
+  margin-bottom: 8px;
+}
+.phone-compare-title { font-size: 10px; font-weight: 800; margin-bottom: 6px; }
+.phone-compare-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 4px 0;
+  border-top: 1px solid #2A2A3A;
+}
+.phone-compare-row:first-of-type { border: none; }
+.phone-compare-store { font-size: 9px; color: #9CA3AF; }
+.phone-compare-price { font-size: 10px; font-weight: 800; }
+.phone-compare-price.green { color: #4ADE80; }
+.phone-compare-price.red { color: #FB7185; }
+.phone-label {
+  text-align: center; margin-top: 16px;
+  font-size: 14px; font-weight: 700; color: #9CA3AF;
+}
+
+/* Features */
 .features {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 80px 20px; max-width: 900px; margin: 0 auto;
 }
 .features h2 {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 48px;
+  text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 48px;
 }
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
 }
 .card {
-  background: #12121A;
-  border: 1px solid #1E1E2E;
-  border-radius: 16px;
-  padding: 24px;
-  transition: border-color 0.2s;
+  background: #12121A; border: 1px solid #1E1E2E;
+  border-radius: 16px; padding: 24px; transition: border-color 0.2s;
 }
 .card:hover { border-color: #8B5CF644; }
 .card-icon { font-size: 32px; margin-bottom: 12px; }
 .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
 .card p { font-size: 14px; color: #9CA3AF; }
 
+/* Stores */
 .stores {
-  padding: 60px 20px;
-  text-align: center;
-  border-top: 1px solid #1E1E2E;
+  padding: 60px 20px; text-align: center; border-top: 1px solid #1E1E2E;
 }
 .stores h2 { font-size: 28px; font-weight: 800; margin-bottom: 32px; }
 .store-list {
-  display: flex;
-  gap: 32px;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: 20px;
+  display: flex; gap: 16px; justify-content: center;
+  flex-wrap: wrap; max-width: 700px; margin: 0 auto;
 }
 .store-item {
-  background: #12121A;
-  border: 1px solid #1E1E2E;
-  border-radius: 12px;
-  padding: 16px 24px;
-  font-weight: 600;
-  font-size: 15px;
+  background: #12121A; border: 1px solid #1E1E2E;
+  border-radius: 12px; padding: 14px 20px;
+  font-weight: 600; font-size: 15px;
 }
 
+/* Footer */
 .footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: #6B7280;
-  font-size: 13px;
+  text-align: center; padding: 40px 20px;
+  color: #6B7280; font-size: 13px;
   border-top: 1px solid #1E1E2E;
 }
 .footer a { color: #8B5CF6; text-decoration: none; }
@@ -140,6 +196,9 @@ h1 span { color: #8B5CF6; }
   .subtitle { font-size: 16px; }
   .stats { gap: 24px; }
   .stat-num { font-size: 28px; }
+  .phones { gap: 24px; }
+  .phone { width: 200px; height: 400px; }
+  .phone-deal-title { font-size: 10px; }
 }
 </style>
 </head>
@@ -152,7 +211,8 @@ h1 span { color: #8B5CF6; }
   <p class="subtitle">
     Все скидки с маркетплейсов, игровых платформ и сервисов путешествий — в одном приложении. Сравнивай цены, отслеживай падение и не упускай выгоду.
   </p>
-  <a href="#features" class="cta">Скачать бесплатно</a>
+  <div class="rustore-badge">Скоро в RuStore</div>
+  <div class="coming-soon">Мобильное приложение для Android</div>
   <div class="stats">
     <div class="stat">
       <div class="stat-num">1000+</div>
@@ -166,6 +226,136 @@ h1 span { color: #8B5CF6; }
       <div class="stat-num">0 ₽</div>
       <div class="stat-label">Бесплатно</div>
     </div>
+  </div>
+</section>
+
+<!-- Phone mockups -->
+<section class="phones">
+  <!-- Phone 1: Home screen -->
+  <div>
+    <div class="phone">
+      <div class="phone-header">
+        <div class="phone-logo">Deal<span>Hunter</span></div>
+        <div class="phone-icons">
+          <div class="phone-icon">🕐</div>
+          <div class="phone-icon">🔔</div>
+        </div>
+      </div>
+      <div class="phone-cats">
+        <div class="phone-cat active">✨ Все</div>
+        <div class="phone-cat">🎮 Игры</div>
+        <div class="phone-cat">👕 Одежда</div>
+      </div>
+      <div style="font-size:9px;color:#FFD700;font-weight:800;margin-bottom:6px;">⚡ СКИДКА ДНЯ</div>
+      <div class="phone-deal">
+        <div class="phone-deal-top">
+          <div class="phone-deal-store">Epic Games</div>
+          <div class="phone-deal-badge">-100%</div>
+        </div>
+        <div class="phone-deal-title">The Ouroboros King</div>
+        <div><span class="phone-deal-price">Бесплатно</span><span class="phone-deal-old">899 ₽</span></div>
+      </div>
+      <div class="phone-section">🔥 Горящие скидки</div>
+      <div class="phone-deal">
+        <div class="phone-deal-top">
+          <div class="phone-deal-store">Aviasales</div>
+          <div class="phone-deal-badge">🔥 Хит</div>
+        </div>
+        <div class="phone-deal-title">Москва → Санкт-Петербург</div>
+        <div><span class="phone-deal-price">✈ 3 899 ₽</span></div>
+      </div>
+      <div class="phone-deal">
+        <div class="phone-deal-top">
+          <div class="phone-deal-store">Steam</div>
+          <div class="phone-deal-badge">-75%</div>
+        </div>
+        <div class="phone-deal-title">Cyberpunk 2077</div>
+        <div><span class="phone-deal-price">499 ₽</span><span class="phone-deal-old">1 999 ₽</span></div>
+      </div>
+    </div>
+    <div class="phone-label">Главная</div>
+  </div>
+
+  <!-- Phone 2: Search -->
+  <div>
+    <div class="phone">
+      <div class="phone-search">🔍 Игры, кроссовки, билеты...</div>
+      <div class="phone-filter-row">
+        <div class="phone-filter accent">Все ›</div>
+        <div class="phone-filter">💰 Цена</div>
+        <div class="phone-filter">По релевантности</div>
+      </div>
+      <div class="phone-section">🔥 Горячие предложения</div>
+      <div class="phone-deal">
+        <div class="phone-deal-top">
+          <div class="phone-deal-store">Ozon</div>
+          <div class="phone-deal-badge">-45%</div>
+        </div>
+        <div class="phone-deal-title">iPhone 15 Pro 256GB</div>
+        <div><span class="phone-deal-price">89 990 ₽</span><span class="phone-deal-old">159 990 ₽</span></div>
+      </div>
+      <div class="phone-deal">
+        <div class="phone-deal-top">
+          <div class="phone-deal-store">Wildberries</div>
+          <div class="phone-deal-badge">-60%</div>
+        </div>
+        <div class="phone-deal-title">Nike Air Max 90</div>
+        <div><span class="phone-deal-price">5 490 ₽</span><span class="phone-deal-old">13 990 ₽</span></div>
+      </div>
+      <div class="phone-deal">
+        <div class="phone-deal-top">
+          <div class="phone-deal-store">Яндекс Путешествия</div>
+          <div class="phone-deal-badge">-30%</div>
+        </div>
+        <div class="phone-deal-title">Отель Сочи 4★ · 3 ночи</div>
+        <div><span class="phone-deal-price">12 600 ₽</span><span class="phone-deal-old">18 000 ₽</span></div>
+      </div>
+      <div class="phone-deal">
+        <div class="phone-deal-top">
+          <div class="phone-deal-store">Авито</div>
+          <div class="phone-deal-badge">-25%</div>
+        </div>
+        <div class="phone-deal-title">Квартира в Казани · 2 ночи</div>
+        <div><span class="phone-deal-price">3 200 ₽</span><span class="phone-deal-old">4 300 ₽</span></div>
+      </div>
+    </div>
+    <div class="phone-label">Поиск</div>
+  </div>
+
+  <!-- Phone 3: Deal detail with comparison -->
+  <div>
+    <div class="phone">
+      <div style="font-size:10px;color:#6B7280;margin-bottom:8px;">← Назад</div>
+      <div style="background:#1E1E2E;border-radius:12px;height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:10px;">👟</div>
+      <div class="phone-deal-store" style="margin-bottom:4px;">WILDBERRIES</div>
+      <div class="phone-deal-title" style="font-size:13px;margin-bottom:4px;">Nike Air Max 90 Essential</div>
+      <div style="margin-bottom:10px;"><span class="phone-deal-price" style="font-size:16px;">5 490 ₽</span><span class="phone-deal-old">13 990 ₽</span></div>
+      <div class="phone-compare">
+        <div class="phone-compare-title">🏪 Цены в других магазинах</div>
+        <div class="phone-compare-row">
+          <div class="phone-compare-store">🟦 Ozon</div>
+          <div class="phone-compare-price green">5 190 ₽ <span style="font-size:8px;">−300 ₽</span></div>
+        </div>
+        <div class="phone-compare-row">
+          <div class="phone-compare-store">🟡 Яндекс Маркет</div>
+          <div class="phone-compare-price red">6 290 ₽ <span style="font-size:8px;">+800 ₽</span></div>
+        </div>
+        <div class="phone-compare-row">
+          <div class="phone-compare-store">🏬 Спортмастер</div>
+          <div class="phone-compare-price red">7 990 ₽ <span style="font-size:8px;">+2 500 ₽</span></div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:#9CA3AF;margin-bottom:6px;">📊 История цены</div>
+      <div style="background:#1E1E2E;border-radius:8px;padding:8px;height:40px;display:flex;align-items:flex-end;gap:2px;">
+        <div style="background:#6B7280;width:12%;height:80%;border-radius:2px;"></div>
+        <div style="background:#6B7280;width:12%;height:90%;border-radius:2px;"></div>
+        <div style="background:#6B7280;width:12%;height:70%;border-radius:2px;"></div>
+        <div style="background:#6B7280;width:12%;height:85%;border-radius:2px;"></div>
+        <div style="background:#6B7280;width:12%;height:60%;border-radius:2px;"></div>
+        <div style="background:#8B5CF6;width:12%;height:35%;border-radius:2px;"></div>
+      </div>
+    </div>
+    <div class="phone-label">Сравнение цен</div>
   </div>
 </section>
 
@@ -194,8 +384,8 @@ h1 span { color: #8B5CF6; }
     </div>
     <div class="card">
       <div class="card-icon">🔍</div>
-      <h3>Умный поиск</h3>
-      <p>Фильтр по цене, категориям и сортировка. Находи именно то что нужно за секунды.</p>
+      <h3>Отслеживание по словам</h3>
+      <p>Добавь ключевые слова — получишь push когда появится новая скидка. PRO-функция.</p>
     </div>
     <div class="card">
       <div class="card-icon">🎮</div>
@@ -213,14 +403,14 @@ h1 span { color: #8B5CF6; }
     <div class="store-item">✈️ Aviasales</div>
     <div class="store-item">🎮 Steam</div>
     <div class="store-item">⚡ Epic Games</div>
-    <div class="store-item">🏠 Авито</div>
+    <div class="store-item">🏠 Авито Путешествия</div>
     <div class="store-item">🟡 Яндекс Путешествия</div>
   </div>
 </section>
 
 <footer class="footer">
   <p>DealHunter &copy; 2025. Агрегатор скидок — мы не продаём товары, а помогаем найти лучшую цену.</p>
-  <p style="margin-top: 8px;"><a href="https://ultiyskadbkrdenzxyym.supabase.co/functions/v1/privacy">Политика конфиденциальности</a></p>
+  <p style="margin-top: 8px;"><a href="mailto:dealhunter.app@mail.ru">dealhunter.app@mail.ru</a> · <a href="https://ultiyskadbkrdenzxyym.supabase.co/functions/v1/privacy">Политика конфиденциальности</a></p>
 </footer>
 
 </body>
