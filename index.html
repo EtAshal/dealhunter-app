@@ -181,6 +181,22 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
 .roadmap-item.done .roadmap-dot{background:#4ADE80}
 .roadmap-item.active .roadmap-dot{background:var(--accent);box-shadow:0 0 12px rgba(139,92,246,.5);animation:pulse 2s infinite}
 
+/* Install Guide */
+.install{padding:80px 20px}
+.install-inner{max-width:800px;margin:0 auto}
+.install h2{text-align:center;font-size:36px;font-weight:800;margin-bottom:12px}
+.install .section-sub{text-align:center;color:var(--muted);font-size:16px;margin-bottom:40px}
+.install-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.install-grid{grid-template-columns:1fr}}
+.install-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px}
+.install-card-icon{font-size:36px;margin-bottom:12px}
+.install-card h3{font-size:18px;font-weight:800;margin-bottom:16px}
+.install-step{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.install-num{width:28px;height:28px;border-radius:14px;background:rgba(139,92,246,.15);color:var(--accent);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.install-step p{font-size:14px;color:var(--muted);line-height:1.5}
+.install-note{margin-top:24px;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2);border-radius:16px;padding:20px;text-align:center}
+.install-note p{font-size:14px;color:var(--text);line-height:1.6}
+
 /* CTA */
 .cta{padding:80px 20px;text-align:center;position:relative;overflow:hidden}
 .cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(circle,rgba(139,92,246,.1) 0%,transparent 70%);pointer-events:none}
@@ -219,6 +235,7 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
   <div class="nav-links">
     <a href="#features">Возможности</a>
     <a href="#stores">Магазины</a>
+    <a href="#install">Установка</a>
     <a href="#faq">FAQ</a>
     <a href="https://pwa.dealhunterapp.online" class="nav-cta">Открыть</a>
   </div>
@@ -591,6 +608,35 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
   </div>
 </section>
 
+<!-- Install Guide -->
+<section class="install fade-up" id="install">
+  <div class="install-inner">
+    <h2>📲 Добавь на главный экран</h2>
+    <p class="section-sub">Работает как обычное приложение — с уведомлениями о скидках</p>
+    <div class="install-grid">
+      <div class="install-card">
+        <div class="install-card-icon">🤖</div>
+        <h3>Android (Chrome)</h3>
+        <div class="install-step"><div class="install-num">1</div><p>Открой <a href="https://pwa.dealhunterapp.online">pwa.dealhunterapp.online</a> в Chrome</p></div>
+        <div class="install-step"><div class="install-num">2</div><p>Нажми <strong>⋮</strong> (три точки) в правом верхнем углу</p></div>
+        <div class="install-step"><div class="install-num">3</div><p>Выбери <strong>«Добавить на главный экран»</strong> или <strong>«Установить приложение»</strong></p></div>
+        <div class="install-step"><div class="install-num">4</div><p>Разреши уведомления когда появится запрос</p></div>
+      </div>
+      <div class="install-card">
+        <div class="install-card-icon">🍎</div>
+        <h3>iPhone (Safari)</h3>
+        <div class="install-step"><div class="install-num">1</div><p>Открой <a href="https://pwa.dealhunterapp.online">pwa.dealhunterapp.online</a> в <strong>Safari</strong></p></div>
+        <div class="install-step"><div class="install-num">2</div><p>Нажми кнопку <strong>«Поделиться»</strong> (квадрат со стрелкой внизу)</p></div>
+        <div class="install-step"><div class="install-num">3</div><p>Выбери <strong>«На экран Домой»</strong></p></div>
+        <div class="install-step"><div class="install-num">4</div><p>Открой приложение и разреши уведомления</p></div>
+      </div>
+    </div>
+    <div class="install-note">
+      <p>🔔 <strong>Важно:</strong> Чтобы получать push-уведомления о скидках, приложение нужно добавить на главный экран и разрешить уведомления. Без этого уведомления не приходят.</p>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq fade-up" id="faq">
   <h2>Частые вопросы</h2>
@@ -631,6 +677,7 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
     <a href="https://pwa.dealhunterapp.online">Веб-версия</a>
     <a href="#features">Возможности</a>
     <a href="#stores">Магазины</a>
+    <a href="#install">Установка</a>
     <a href="#faq">FAQ</a>
     <a href="https://ultiyskadbkrdenzxyym.supabase.co/functions/v1/privacy">Политика конфиденциальности</a>
   </div>
