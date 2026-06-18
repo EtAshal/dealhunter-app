@@ -7,7 +7,7 @@
 <meta name="description" content="DealHunter — агрегатор скидок из 15+ магазинов России. Steam, Ozon, Wildberries, Aviasales, Lamoda и другие. Бесплатно.">
 <meta name="keywords" content="скидки, акции, промокоды, распродажи, Ozon, Wildberries, Steam, Epic Games, Aviasales">
 <meta property="og:title" content="DealHunter — Лучшие скидки России">
-<meta property="og:description" content="500+ скидок из 15+ магазинов. Игры, маркетплейсы, путешествия, одежда и техника.">
+<meta property="og:description" content="500+ скидок из 14 магазинов. Игры, маркетплейсы, путешествия, одежда и техника.">
 <meta property="og:image" content="icon.png">
 <meta property="og:type" content="website">
 <title>DealHunter — Лучшие скидки России</title>
@@ -166,6 +166,21 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:14px;color:var(--muted);line-height:1.6}
 .faq-item.open .faq-a{max-height:200px;padding-top:12px}
 
+/* About */
+.about{padding:80px 20px}
+.about-inner{max-width:700px;margin:0 auto;text-align:center}
+.about-icon{font-size:56px;margin-bottom:16px}
+.about h2{font-size:36px;font-weight:800;margin-bottom:24px}
+.about-text{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.about-text strong{color:var(--text);font-weight:700}
+.about-roadmap{display:flex;flex-direction:column;gap:16px;margin-top:32px;text-align:left;max-width:400px;margin-left:auto;margin-right:auto}
+.roadmap-item{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600;color:var(--dim);position:relative;padding-left:4px}
+.roadmap-item.done{color:var(--muted)}
+.roadmap-item.active{color:var(--accent)}
+.roadmap-dot{width:12px;height:12px;border-radius:50%;background:var(--border);flex-shrink:0}
+.roadmap-item.done .roadmap-dot{background:#4ADE80}
+.roadmap-item.active .roadmap-dot{background:var(--accent);box-shadow:0 0 12px rgba(139,92,246,.5);animation:pulse 2s infinite}
+
 /* CTA */
 .cta{padding:80px 20px;text-align:center;position:relative;overflow:hidden}
 .cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(circle,rgba(139,92,246,.1) 0%,transparent 70%);pointer-events:none}
@@ -214,7 +229,7 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
   <div class="hero-badge"><span class="dot"></span> Обновление скидок каждые 6 часов</div>
   <h1>Все скидки<br>в одном <span>приложении</span></h1>
   <p class="tagline">
-    500+ скидок из 15+ магазинов России. Маркетплейсы, игры, путешествия, одежда и техника — находим лучшие цены за вас.
+    500+ скидок из 14 магазинов России. Маркетплейсы, игры, путешествия, одежда и техника — находим лучшие цены за вас.
   </p>
   <div class="hero-buttons">
     <a href="https://pwa.dealhunterapp.online" class="btn btn-primary">🌐 Открыть веб-версию</a>
@@ -227,7 +242,7 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
       <div class="stat-label">Скидок</div>
     </div>
     <div class="stat">
-      <div class="stat-num">15+</div>
+      <div class="stat-num">14</div>
       <div class="stat-label">Магазинов</div>
     </div>
     <div class="stat">
@@ -250,16 +265,14 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
     <div class="ticker-item">🟪 Wildberries</div>
     <div class="ticker-item">✈️ Aviasales</div>
     <div class="ticker-item">📱 МТС</div>
-    <div class="ticker-item">🟡 Яндекс Маркет</div>
-    <div class="ticker-item">👗 Lamoda</div>
-    <div class="ticker-item">💻 DNS</div>
-    <div class="ticker-item">🛍️ AliExpress</div>
+    <div class="ticker-item">🎯 GGSel</div>
     <div class="ticker-item">👗 Love Republic</div>
     <div class="ticker-item">📱 Mi Shop</div>
     <div class="ticker-item">👟 SuperStep</div>
     <div class="ticker-item">🚂 Tutu.ru</div>
     <div class="ticker-item">🏡 Суточно.ру</div>
-    <div class="ticker-item">🔑 Купикод</div>
+    <div class="ticker-item">🏠 Avito Travel</div>
+    <div class="ticker-item">🟡 Яндекс Путешествия</div>
     <!-- Duplicate for seamless loop -->
     <div class="ticker-item">🎮 Steam</div>
     <div class="ticker-item">⚡ Epic Games</div>
@@ -267,16 +280,14 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
     <div class="ticker-item">🟪 Wildberries</div>
     <div class="ticker-item">✈️ Aviasales</div>
     <div class="ticker-item">📱 МТС</div>
-    <div class="ticker-item">🟡 Яндекс Маркет</div>
-    <div class="ticker-item">👗 Lamoda</div>
-    <div class="ticker-item">💻 DNS</div>
-    <div class="ticker-item">🛍️ AliExpress</div>
+    <div class="ticker-item">🎯 GGSel</div>
     <div class="ticker-item">👗 Love Republic</div>
     <div class="ticker-item">📱 Mi Shop</div>
     <div class="ticker-item">👟 SuperStep</div>
     <div class="ticker-item">🚂 Tutu.ru</div>
     <div class="ticker-item">🏡 Суточно.ру</div>
-    <div class="ticker-item">🔑 Купикод</div>
+    <div class="ticker-item">🏠 Avito Travel</div>
+    <div class="ticker-item">🟡 Яндекс Путешествия</div>
   </div>
 </div>
 
@@ -453,8 +464,8 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
     </div>
     <div class="card">
       <div class="card-icon">🏪</div>
-      <h3>15+ магазинов</h3>
-      <p>Ozon, Wildberries, Steam, Aviasales, Lamoda, SuperStep и другие — все в одном месте.</p>
+      <h3>14 магазинов</h3>
+      <p>Ozon, Wildberries, Steam, Aviasales, SuperStep, Love Republic и другие — все в одном месте.</p>
     </div>
     <div class="card">
       <div class="card-icon">🎮</div>
@@ -489,8 +500,6 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
   <div class="store-grid" id="storeGrid">
     <div class="store-chip" data-cat="market"><span class="emoji">🟦</span> Ozon</div>
     <div class="store-chip" data-cat="market"><span class="emoji">🟪</span> Wildberries</div>
-    <div class="store-chip" data-cat="market"><span class="emoji">🟡</span> Яндекс Маркет</div>
-    <div class="store-chip" data-cat="market"><span class="emoji">🛍️</span> AliExpress</div>
     <div class="store-chip" data-cat="games"><span class="emoji">🎮</span> Steam</div>
     <div class="store-chip" data-cat="games"><span class="emoji">⚡</span> Epic Games</div>
     <div class="store-chip" data-cat="games"><span class="emoji">🎯</span> GGSel</div>
@@ -499,13 +508,10 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
     <div class="store-chip" data-cat="travel"><span class="emoji">🏡</span> Суточно.ру</div>
     <div class="store-chip" data-cat="travel"><span class="emoji">🏠</span> Avito Travel</div>
     <div class="store-chip" data-cat="travel"><span class="emoji">🟡</span> Яндекс Путешествия</div>
-    <div class="store-chip" data-cat="fashion"><span class="emoji">👗</span> Lamoda</div>
     <div class="store-chip" data-cat="fashion"><span class="emoji">👗</span> Love Republic</div>
     <div class="store-chip" data-cat="fashion"><span class="emoji">👟</span> SuperStep</div>
     <div class="store-chip" data-cat="tech"><span class="emoji">📱</span> МТС</div>
-    <div class="store-chip" data-cat="tech"><span class="emoji">💻</span> DNS</div>
     <div class="store-chip" data-cat="tech"><span class="emoji">📱</span> Mi Shop</div>
-    <div class="store-chip" data-cat="market"><span class="emoji">🔑</span> Купикод</div>
   </div>
 </section>
 
@@ -550,12 +556,47 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
   </div>
 </section>
 
+<!-- About -->
+<section class="about fade-up" id="about">
+  <div class="about-inner">
+    <div class="about-icon">👨‍💻</div>
+    <h2>О проекте</h2>
+    <p class="about-text">
+      DealHunter — это indie-проект, который разрабатывается одним человеком с любовью к деталям и желанием сделать шопинг в России удобнее. Каждая функция, каждый магазин и каждое обновление — результат работы одного разработчика.
+    </p>
+    <p class="about-text">
+      Благодаря поддержке пользователей проект растёт и становится лучше. В планах — выход приложения в <strong>RuStore</strong> для Android и <strong>App Store</strong> для iOS, расширение списка магазинов, система сравнения цен и персональные рекомендации.
+    </p>
+    <p class="about-text" style="color:var(--accent);">
+      Ваша поддержка и обратная связь — это то, что двигает проект вперёд. Спасибо, что вы с нами! 💜
+    </p>
+    <div class="about-roadmap">
+      <div class="roadmap-item done">
+        <div class="roadmap-dot"></div>
+        <span>PWA веб-версия</span>
+      </div>
+      <div class="roadmap-item active">
+        <div class="roadmap-dot"></div>
+        <span>Приложение для Android (RuStore)</span>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <span>Приложение для iOS (App Store)</span>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <span>Умные рекомендации и сравнение цен</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq fade-up" id="faq">
   <h2>Частые вопросы</h2>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Это бесплатно?</div>
-    <div class="faq-a">Да, DealHunter полностью бесплатный. Мы зарабатываем на партнёрских комиссиях от магазинов — для вас цена товара не меняется.</div>
+    <div class="faq-a">Да, DealHunter полностью бесплатный. Все скидки, уведомления и функции доступны без ограничений. В будущем появится премиум-подписка с дополнительными возможностями, но основной функционал всегда останется бесплатным.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Как часто обновляются скидки?</div>
@@ -567,7 +608,7 @@ h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-backgro
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Какие магазины поддерживаются?</div>
-    <div class="faq-a">Ozon, Wildberries, Яндекс Маркет, AliExpress, Steam, Epic Games, Aviasales, Tutu.ru, Суточно.ру, Lamoda, Love Republic, SuperStep, Mi Shop, МТС, DNS и другие. Список постоянно расширяется.</div>
+    <div class="faq-a">Ozon, Wildberries, Steam, Epic Games, GGSel, Aviasales, Tutu.ru, Суточно.ру, Avito Travel, Яндекс Путешествия, Love Republic, SuperStep, Mi Shop и МТС. Список постоянно расширяется — мы добавляем новые магазины каждый месяц.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Цены точные?</div>
