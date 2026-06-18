@@ -4,224 +4,235 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="takprodam-verification" content="de92cf87-b283-4381-99c2-f0bc55bf35bc">
+<meta name="description" content="DealHunter — агрегатор скидок из 15+ магазинов России. Steam, Ozon, Wildberries, Aviasales, Lamoda и другие. Бесплатно.">
+<meta name="keywords" content="скидки, акции, промокоды, распродажи, Ozon, Wildberries, Steam, Epic Games, Aviasales">
+<meta property="og:title" content="DealHunter — Лучшие скидки России">
+<meta property="og:description" content="500+ скидок из 15+ магазинов. Игры, маркетплейсы, путешествия, одежда и техника.">
+<meta property="og:image" content="icon.png">
+<meta property="og:type" content="website">
 <title>DealHunter — Лучшие скидки России</title>
+<link rel="icon" href="icon.png">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #0A0A0F;
-  color: #E8E4F0;
-  line-height: 1.6;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--accent:#8B5CF6;--accent-light:#A78BFA;--bg:#0A0A0F;--card:#12121A;--border:#1E1E2E;--text:#E8E4F0;--muted:#9CA3AF;--dim:#6B7280}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes countUp{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* Navbar */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
+.navbar.scrolled{border-color:var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}
+.nav-logo img{width:32px;height:32px;border-radius:8px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--muted);font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#fff!important;padding:8px 20px;border-radius:10px;font-weight:700;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(139,92,246,.4)}
 
 /* Hero */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.15) 0%, transparent 60%);
-}
-.logo {
-  width: 100px; height: 100px; border-radius: 24px;
-  margin-bottom: 24px;
-  box-shadow: 0 0 40px rgba(139,92,246,0.3);
-}
-h1 { font-size: 48px; font-weight: 900; letter-spacing: -1px; margin-bottom: 8px; }
-h1 span { color: #8B5CF6; }
-.tagline {
-  color: #8B5CF6; font-size: 14px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px;
-}
-.subtitle { font-size: 20px; color: #9CA3AF; max-width: 500px; margin-bottom: 32px; }
-.rustore-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, #0066FF, #00C8FF);
-  color: #fff; padding: 14px 28px; border-radius: 14px;
-  font-size: 17px; font-weight: 800; text-decoration: none;
-  box-shadow: 0 4px 20px rgba(0,102,255,0.3);
-  margin-bottom: 12px;
-  transition: transform 0.2s;
-}
-.rustore-badge:hover { transform: translateY(-2px); }
-.coming-soon {
-  font-size: 13px; color: #6B7280; margin-bottom: 40px;
-}
-.stats {
-  display: flex; gap: 40px; margin-top: 40px;
-  flex-wrap: wrap; justify-content: center;
-}
-.stat { text-align: center; }
-.stat-num { font-size: 36px; font-weight: 900; color: #8B5CF6; }
-.stat-label { font-size: 14px; color: #6B7280; margin-top: 4px; }
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 20px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(139,92,246,.12) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,.08) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:600;color:var(--accent-light);margin-bottom:24px;animation:fadeUp .6s ease}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;animation:pulse 2s infinite}
+h1{font-size:56px;font-weight:900;letter-spacing:-2px;margin-bottom:16px;animation:fadeUp .6s ease .1s both}
+h1 span{background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tagline{color:var(--muted);font-size:20px;max-width:560px;margin-bottom:36px;animation:fadeUp .6s ease .2s both}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:fadeUp .6s ease .3s both;margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;font-size:16px;font-weight:800;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#7C3AED);color:#fff;box-shadow:0 4px 20px rgba(139,92,246,.3)}
+.btn-primary:hover{box-shadow:0 8px 32px rgba(139,92,246,.4)}
+.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(139,92,246,.15)}
+.btn-rustore{background:linear-gradient(135deg,#0066FF,#00AAFF);color:#fff;box-shadow:0 4px 20px rgba(0,102,255,.3);opacity:.7;cursor:default}
+.hero-note{font-size:13px;color:var(--dim);animation:fadeUp .6s ease .35s both}
+.stats{display:flex;gap:48px;margin-top:48px;flex-wrap:wrap;justify-content:center;animation:fadeUp .6s ease .4s both}
+.stat{text-align:center}
+.stat-num{font-size:40px;font-weight:900;background:linear-gradient(135deg,var(--accent),#3B82F6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:13px;color:var(--dim);margin-top:4px;font-weight:600}
+
+/* Ticker */
+.ticker-wrap{overflow:hidden;padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(18,18,26,.5)}
+.ticker{display:flex;gap:24px;animation:scroll 30s linear infinite;width:max-content}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{display:flex;align-items:center;gap:8px;padding:8px 20px;background:var(--card);border:1px solid var(--border);border-radius:10px;white-space:nowrap;font-size:14px;font-weight:600}
 
 /* Phone mockups */
-.phones {
-  padding: 60px 20px 80px;
-  max-width: 1000px; margin: 0 auto;
-  display: flex; gap: 40px; justify-content: center;
-  flex-wrap: wrap;
-}
-.phone {
-  width: 240px; height: 480px;
-  background: #12121A;
-  border-radius: 32px;
-  border: 3px solid #2A2A3A;
-  padding: 16px 14px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-.phone::before {
-  content: '';
-  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
-  width: 60px; height: 6px; border-radius: 3px;
-  background: #2A2A3A;
-}
-.phone-header {
-  margin-top: 12px; margin-bottom: 12px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.phone-logo { font-size: 14px; font-weight: 900; }
-.phone-logo span { color: #8B5CF6; }
-.phone-icons { display: flex; gap: 6px; }
-.phone-icon {
-  width: 22px; height: 22px; border-radius: 11px;
-  background: #1E1E2E; display: flex; align-items: center;
-  justify-content: center; font-size: 10px;
-}
-.phone-cats {
-  display: flex; gap: 6px; margin-bottom: 10px; overflow: hidden;
-}
-.phone-cat {
-  padding: 4px 10px; border-radius: 20px;
-  font-size: 10px; font-weight: 600; white-space: nowrap;
-  background: #1E1E2E; color: #9CA3AF;
-}
-.phone-cat.active { background: rgba(139,92,246,0.15); color: #8B5CF6; border: 1px solid rgba(139,92,246,0.3); }
-.phone-deal {
-  background: #1E1E2E; border-radius: 12px;
-  padding: 10px; margin-bottom: 8px;
-}
-.phone-deal-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-.phone-deal-store { font-size: 9px; color: #6B7280; text-transform: uppercase; font-weight: 700; }
-.phone-deal-badge {
-  font-size: 8px; padding: 2px 6px; border-radius: 8px;
-  background: rgba(251,113,133,0.2); color: #FB7185; font-weight: 800;
-}
-.phone-deal-title { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
-.phone-deal-price { font-size: 13px; font-weight: 900; color: #8B5CF6; }
-.phone-deal-old { font-size: 10px; color: #6B7280; text-decoration: line-through; margin-left: 6px; }
-.phone-section { font-size: 11px; font-weight: 800; margin: 10px 0 6px; }
-.phone-search {
-  background: #1E1E2E; border-radius: 10px; padding: 8px 12px;
-  font-size: 11px; color: #6B7280; margin-bottom: 10px;
-  border: 1px solid #2A2A3A;
-}
-.phone-filter-row {
-  display: flex; gap: 6px; margin-bottom: 10px;
-}
-.phone-filter {
-  padding: 4px 10px; border-radius: 20px;
-  font-size: 9px; font-weight: 700; white-space: nowrap;
-  background: #1E1E2E; color: #9CA3AF;
-}
-.phone-filter.accent { background: rgba(139,92,246,0.15); color: #8B5CF6; }
-.phone-compare {
-  background: #1E1E2E; border-radius: 10px; padding: 10px;
-  margin-bottom: 8px;
-}
-.phone-compare-title { font-size: 10px; font-weight: 800; margin-bottom: 6px; }
-.phone-compare-row {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 4px 0;
-  border-top: 1px solid #2A2A3A;
-}
-.phone-compare-row:first-of-type { border: none; }
-.phone-compare-store { font-size: 9px; color: #9CA3AF; }
-.phone-compare-price { font-size: 10px; font-weight: 800; }
-.phone-compare-price.green { color: #4ADE80; }
-.phone-compare-price.red { color: #FB7185; }
-.phone-label {
-  text-align: center; margin-top: 16px;
-  font-size: 14px; font-weight: 700; color: #9CA3AF;
-}
+.phones-section{padding:80px 20px;position:relative}
+.phones-section h2{text-align:center;font-size:36px;font-weight:800;margin-bottom:12px}
+.phones-section .section-sub{text-align:center;color:var(--muted);font-size:16px;margin-bottom:48px;max-width:500px;margin-left:auto;margin-right:auto}
+.phones{max-width:1000px;margin:0 auto;display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.phone-wrap{transition:transform .3s}
+.phone-wrap:hover{transform:translateY(-8px)}
+.phone{width:250px;height:500px;background:var(--card);border-radius:32px;border:3px solid #2A2A3A;padding:16px 14px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.phone::before{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:60px;height:6px;border-radius:3px;background:#2A2A3A}
+.phone-header{margin-top:12px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
+.phone-logo{font-size:14px;font-weight:900}
+.phone-logo span{color:var(--accent)}
+.phone-icons{display:flex;gap:6px}
+.phone-icon{width:22px;height:22px;border-radius:11px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:10px}
+.phone-cats{display:flex;gap:6px;margin-bottom:10px;overflow:hidden}
+.phone-cat{padding:4px 10px;border-radius:20px;font-size:10px;font-weight:600;white-space:nowrap;background:var(--border);color:var(--muted)}
+.phone-cat.active{background:rgba(139,92,246,.15);color:var(--accent);border:1px solid rgba(139,92,246,.3)}
+.phone-deal{background:var(--border);border-radius:12px;padding:10px;margin-bottom:8px}
+.phone-deal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.phone-deal-store{font-size:9px;color:var(--dim);text-transform:uppercase;font-weight:700}
+.phone-deal-badge{font-size:8px;padding:2px 6px;border-radius:8px;background:rgba(251,113,133,.2);color:#FB7185;font-weight:800}
+.phone-deal-title{font-size:11px;font-weight:700;margin-bottom:4px}
+.phone-deal-price{font-size:13px;font-weight:900;color:var(--accent)}
+.phone-deal-old{font-size:10px;color:var(--dim);text-decoration:line-through;margin-left:6px}
+.phone-section{font-size:11px;font-weight:800;margin:10px 0 6px}
+.phone-search{background:var(--border);border-radius:10px;padding:8px 12px;font-size:11px;color:var(--dim);margin-bottom:10px;border:1px solid #2A2A3A}
+.phone-filter-row{display:flex;gap:6px;margin-bottom:10px}
+.phone-filter{padding:4px 10px;border-radius:20px;font-size:9px;font-weight:700;white-space:nowrap;background:var(--border);color:var(--muted)}
+.phone-filter.accent{background:rgba(139,92,246,.15);color:var(--accent)}
+.phone-compare{background:var(--border);border-radius:10px;padding:10px;margin-bottom:8px}
+.phone-compare-title{font-size:10px;font-weight:800;margin-bottom:6px}
+.phone-compare-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-top:1px solid #2A2A3A}
+.phone-compare-row:first-of-type{border:none}
+.phone-compare-store{font-size:9px;color:var(--muted)}
+.phone-compare-price{font-size:10px;font-weight:800}
+.phone-compare-price.green{color:#4ADE80}
+.phone-compare-price.red{color:#FB7185}
+.phone-label{text-align:center;margin-top:16px;font-size:14px;font-weight:700;color:var(--muted)}
+
+/* How it works */
+.how{padding:80px 20px;max-width:900px;margin:0 auto}
+.how h2{text-align:center;font-size:36px;font-weight:800;margin-bottom:48px}
+.how-steps{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.how-step{flex:1;min-width:220px;max-width:280px;text-align:center;padding:32px 20px;background:var(--card);border:1px solid var(--border);border-radius:20px;position:relative;transition:border-color .3s,transform .3s}
+.how-step:hover{border-color:rgba(139,92,246,.3);transform:translateY(-4px)}
+.how-num{position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#7C3AED);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.how-icon{font-size:40px;margin-bottom:12px;margin-top:8px}
+.how-step h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.how-step p{font-size:13px;color:var(--muted)}
 
 /* Features */
-.features {
-  padding: 80px 20px; max-width: 900px; margin: 0 auto;
-}
-.features h2 {
-  text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 48px;
-}
-.grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
-}
-.card {
-  background: #12121A; border: 1px solid #1E1E2E;
-  border-radius: 16px; padding: 24px; transition: border-color 0.2s;
-}
-.card:hover { border-color: #8B5CF644; }
-.card-icon { font-size: 32px; margin-bottom: 12px; }
-.card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-.card p { font-size: 14px; color: #9CA3AF; }
+.features{padding:80px 20px;max-width:1000px;margin:0 auto}
+.features h2{text-align:center;font-size:36px;font-weight:800;margin-bottom:12px}
+.features .section-sub{text-align:center;color:var(--muted);font-size:16px;margin-bottom:48px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(139,92,246,.3);transform:translateY(-4px)}
+.card-icon{font-size:36px;margin-bottom:14px}
+.card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted);line-height:1.5}
 
 /* Stores */
-.stores {
-  padding: 60px 20px; text-align: center; border-top: 1px solid #1E1E2E;
-}
-.stores h2 { font-size: 28px; font-weight: 800; margin-bottom: 32px; }
-.store-list {
-  display: flex; gap: 16px; justify-content: center;
-  flex-wrap: wrap; max-width: 700px; margin: 0 auto;
-}
-.store-item {
-  background: #12121A; border: 1px solid #1E1E2E;
-  border-radius: 12px; padding: 14px 20px;
-  font-weight: 600; font-size: 15px;
-}
+.stores{padding:80px 20px;text-align:center}
+.stores h2{font-size:36px;font-weight:800;margin-bottom:12px}
+.stores .section-sub{color:var(--muted);font-size:16px;margin-bottom:40px}
+.store-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.store-chip{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 20px;font-weight:600;font-size:14px;transition:border-color .3s,transform .3s}
+.store-chip:hover{border-color:rgba(139,92,246,.3);transform:translateY(-2px)}
+.store-chip .emoji{font-size:20px}
+.store-categories{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto 32px}
+.store-cat{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:700;background:var(--card);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s}
+.store-cat.active{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.3);color:var(--accent)}
+
+/* Testimonials */
+.reviews{padding:80px 20px;max-width:900px;margin:0 auto}
+.reviews h2{text-align:center;font-size:36px;font-weight:800;margin-bottom:12px}
+.reviews .section-sub{text-align:center;color:var(--muted);font-size:16px;margin-bottom:40px}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.review{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px}
+.review-stars{color:#FBBF24;font-size:14px;margin-bottom:12px}
+.review-text{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.review-author{display:flex;align-items:center;gap:10px}
+.review-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#3B82F6);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff}
+.review-name{font-size:13px;font-weight:700}
+.review-date{font-size:11px;color:var(--dim)}
+
+/* FAQ */
+.faq{padding:80px 20px;max-width:700px;margin:0 auto}
+.faq h2{text-align:center;font-size:36px;font-weight:800;margin-bottom:40px}
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+.faq-q{font-size:16px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .2s}
+.faq-q:hover{color:var(--accent)}
+.faq-q::after{content:'+';font-size:22px;color:var(--dim);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:14px;color:var(--muted);line-height:1.6}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px}
+
+/* CTA */
+.cta{padding:80px 20px;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(circle,rgba(139,92,246,.1) 0%,transparent 70%);pointer-events:none}
+.cta h2{font-size:36px;font-weight:800;margin-bottom:12px}
+.cta p{color:var(--muted);font-size:16px;margin-bottom:32px}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
 /* Footer */
-.footer {
-  text-align: center; padding: 40px 20px;
-  color: #6B7280; font-size: 13px;
-  border-top: 1px solid #1E1E2E;
-}
-.footer a { color: #8B5CF6; text-decoration: none; }
+.footer{text-align:center;padding:40px 20px;color:var(--dim);font-size:13px;border-top:1px solid var(--border)}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
+.footer-links a{color:var(--muted);font-size:13px;font-weight:600;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
 
-@media (max-width: 600px) {
-  h1 { font-size: 32px; }
-  .subtitle { font-size: 16px; }
-  .stats { gap: 24px; }
-  .stat-num { font-size: 28px; }
-  .phones { gap: 24px; }
-  .phone { width: 200px; height: 400px; }
-  .phone-deal-title { font-size: 10px; }
+@media(max-width:768px){
+  .nav-links a:not(.nav-cta){display:none}
+  h1{font-size:36px;letter-spacing:-1px}
+  .tagline{font-size:16px}
+  .stats{gap:28px}
+  .stat-num{font-size:32px}
+  .phones{gap:24px}
+  .phone{width:220px;height:440px}
+  .how-steps{flex-direction:column;align-items:center}
+  .how-step{max-width:100%}
+  .features h2,.stores h2,.reviews h2,.faq h2,.how h2,.phones-section h2,.cta h2{font-size:28px}
 }
 </style>
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">
+    <img src="icon.png" alt="DealHunter">
+    Deal<span>Hunter</span>
+  </div>
+  <div class="nav-links">
+    <a href="#features">Возможности</a>
+    <a href="#stores">Магазины</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://pwa.dealhunterapp.online" class="nav-cta">Открыть</a>
+  </div>
+</nav>
+
+<!-- Hero -->
 <section class="hero">
-  <img src="icon.png" alt="DealHunter" class="logo">
-  <h1>Deal<span>Hunter</span></h1>
-  <div class="tagline">Лучшие скидки России</div>
-  <p class="subtitle">
-    Все скидки с маркетплейсов, игровых платформ и сервисов путешествий — в одном приложении. Сравнивай цены, отслеживай падение и не упускай выгоду.
+  <div class="hero-badge"><span class="dot"></span> Обновление скидок каждые 6 часов</div>
+  <h1>Все скидки<br>в одном <span>приложении</span></h1>
+  <p class="tagline">
+    500+ скидок из 15+ магазинов России. Маркетплейсы, игры, путешествия, одежда и техника — находим лучшие цены за вас.
   </p>
-  <div class="rustore-badge">Скоро в RuStore</div>
-  <div class="coming-soon">Мобильное приложение для Android</div>
+  <div class="hero-buttons">
+    <a href="https://pwa.dealhunterapp.online" class="btn btn-primary">🌐 Открыть веб-версию</a>
+    <div class="btn btn-rustore">📱 Скоро в RuStore</div>
+  </div>
+  <div class="hero-note">Работает на любом устройстве — без установки</div>
   <div class="stats">
     <div class="stat">
-      <div class="stat-num">1000+</div>
-      <div class="stat-label">Скидок ежедневно</div>
+      <div class="stat-num">548+</div>
+      <div class="stat-label">Скидок</div>
     </div>
     <div class="stat">
-      <div class="stat-num">10+</div>
+      <div class="stat-num">15+</div>
       <div class="stat-label">Магазинов</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6ч</div>
+      <div class="stat-label">Обновление</div>
     </div>
     <div class="stat">
       <div class="stat-num">0 ₽</div>
@@ -230,189 +241,383 @@ h1 span { color: #8B5CF6; }
   </div>
 </section>
 
-<!-- Phone mockups -->
-<section class="phones">
-  <!-- Phone 1: Home screen -->
-  <div>
-    <div class="phone">
-      <div class="phone-header">
-        <div class="phone-logo">Deal<span>Hunter</span></div>
-        <div class="phone-icons">
-          <div class="phone-icon">🕐</div>
-          <div class="phone-icon">🔔</div>
-        </div>
-      </div>
-      <div class="phone-cats">
-        <div class="phone-cat active">✨ Все</div>
-        <div class="phone-cat">🎮 Игры</div>
-        <div class="phone-cat">👕 Одежда</div>
-      </div>
-      <div style="font-size:9px;color:#FFD700;font-weight:800;margin-bottom:6px;">⚡ СКИДКА ДНЯ</div>
-      <div class="phone-deal">
-        <div class="phone-deal-top">
-          <div class="phone-deal-store">Epic Games</div>
-          <div class="phone-deal-badge">-100%</div>
-        </div>
-        <div class="phone-deal-title">The Ouroboros King</div>
-        <div><span class="phone-deal-price">Бесплатно</span><span class="phone-deal-old">899 ₽</span></div>
-      </div>
-      <div class="phone-section">🔥 Горящие скидки</div>
-      <div class="phone-deal">
-        <div class="phone-deal-top">
-          <div class="phone-deal-store">Aviasales</div>
-          <div class="phone-deal-badge">🔥 Хит</div>
-        </div>
-        <div class="phone-deal-title">Москва → Санкт-Петербург</div>
-        <div><span class="phone-deal-price">✈ 3 899 ₽</span></div>
-      </div>
-      <div class="phone-deal">
-        <div class="phone-deal-top">
-          <div class="phone-deal-store">Steam</div>
-          <div class="phone-deal-badge">-75%</div>
-        </div>
-        <div class="phone-deal-title">Cyberpunk 2077</div>
-        <div><span class="phone-deal-price">499 ₽</span><span class="phone-deal-old">1 999 ₽</span></div>
-      </div>
-    </div>
-    <div class="phone-label">Главная</div>
+<!-- Store ticker -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <div class="ticker-item">🎮 Steam</div>
+    <div class="ticker-item">⚡ Epic Games</div>
+    <div class="ticker-item">🟦 Ozon</div>
+    <div class="ticker-item">🟪 Wildberries</div>
+    <div class="ticker-item">✈️ Aviasales</div>
+    <div class="ticker-item">📱 МТС</div>
+    <div class="ticker-item">🟡 Яндекс Маркет</div>
+    <div class="ticker-item">👗 Lamoda</div>
+    <div class="ticker-item">💻 DNS</div>
+    <div class="ticker-item">🛍️ AliExpress</div>
+    <div class="ticker-item">👗 Love Republic</div>
+    <div class="ticker-item">📱 Mi Shop</div>
+    <div class="ticker-item">👟 SuperStep</div>
+    <div class="ticker-item">🚂 Tutu.ru</div>
+    <div class="ticker-item">🏡 Суточно.ру</div>
+    <div class="ticker-item">🔑 Купикод</div>
+    <!-- Duplicate for seamless loop -->
+    <div class="ticker-item">🎮 Steam</div>
+    <div class="ticker-item">⚡ Epic Games</div>
+    <div class="ticker-item">🟦 Ozon</div>
+    <div class="ticker-item">🟪 Wildberries</div>
+    <div class="ticker-item">✈️ Aviasales</div>
+    <div class="ticker-item">📱 МТС</div>
+    <div class="ticker-item">🟡 Яндекс Маркет</div>
+    <div class="ticker-item">👗 Lamoda</div>
+    <div class="ticker-item">💻 DNS</div>
+    <div class="ticker-item">🛍️ AliExpress</div>
+    <div class="ticker-item">👗 Love Republic</div>
+    <div class="ticker-item">📱 Mi Shop</div>
+    <div class="ticker-item">👟 SuperStep</div>
+    <div class="ticker-item">🚂 Tutu.ru</div>
+    <div class="ticker-item">🏡 Суточно.ру</div>
+    <div class="ticker-item">🔑 Купикод</div>
   </div>
+</div>
 
-  <!-- Phone 2: Search -->
-  <div>
-    <div class="phone">
-      <div class="phone-search">🔍 Игры, кроссовки, билеты...</div>
-      <div class="phone-filter-row">
-        <div class="phone-filter accent">Все ›</div>
-        <div class="phone-filter">💰 Цена</div>
-        <div class="phone-filter">По релевантности</div>
-      </div>
-      <div class="phone-section">🔥 Горячие предложения</div>
-      <div class="phone-deal">
-        <div class="phone-deal-top">
-          <div class="phone-deal-store">Ozon</div>
-          <div class="phone-deal-badge">-45%</div>
-        </div>
-        <div class="phone-deal-title">iPhone 15 Pro 256GB</div>
-        <div><span class="phone-deal-price">89 990 ₽</span><span class="phone-deal-old">159 990 ₽</span></div>
-      </div>
-      <div class="phone-deal">
-        <div class="phone-deal-top">
-          <div class="phone-deal-store">Wildberries</div>
-          <div class="phone-deal-badge">-60%</div>
-        </div>
-        <div class="phone-deal-title">Nike Air Max 90</div>
-        <div><span class="phone-deal-price">5 490 ₽</span><span class="phone-deal-old">13 990 ₽</span></div>
-      </div>
-      <div class="phone-deal">
-        <div class="phone-deal-top">
-          <div class="phone-deal-store">Яндекс Путешествия</div>
-          <div class="phone-deal-badge">-30%</div>
-        </div>
-        <div class="phone-deal-title">Отель Сочи 4★ · 3 ночи</div>
-        <div><span class="phone-deal-price">12 600 ₽</span><span class="phone-deal-old">18 000 ₽</span></div>
-      </div>
-      <div class="phone-deal">
-        <div class="phone-deal-top">
-          <div class="phone-deal-store">Авито</div>
-          <div class="phone-deal-badge">-25%</div>
-        </div>
-        <div class="phone-deal-title">Квартира в Казани · 2 ночи</div>
-        <div><span class="phone-deal-price">3 200 ₽</span><span class="phone-deal-old">4 300 ₽</span></div>
-      </div>
+<!-- How it works -->
+<section class="how fade-up" id="how">
+  <h2>Как это работает</h2>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <div class="how-icon">🔍</div>
+      <h3>Собираем скидки</h3>
+      <p>Каждые 6 часов наши скрипты сканируют 15+ магазинов и находят лучшие предложения</p>
     </div>
-    <div class="phone-label">Поиск</div>
-  </div>
-
-  <!-- Phone 3: Deal detail with comparison -->
-  <div>
-    <div class="phone">
-      <div style="font-size:10px;color:#6B7280;margin-bottom:8px;">← Назад</div>
-      <div style="background:#1E1E2E;border-radius:12px;height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:10px;">👟</div>
-      <div class="phone-deal-store" style="margin-bottom:4px;">WILDBERRIES</div>
-      <div class="phone-deal-title" style="font-size:13px;margin-bottom:4px;">Nike Air Max 90 Essential</div>
-      <div style="margin-bottom:10px;"><span class="phone-deal-price" style="font-size:16px;">5 490 ₽</span><span class="phone-deal-old">13 990 ₽</span></div>
-      <div class="phone-compare">
-        <div class="phone-compare-title">🏪 Цены в других магазинах</div>
-        <div class="phone-compare-row">
-          <div class="phone-compare-store">🟦 Ozon</div>
-          <div class="phone-compare-price green">5 190 ₽ <span style="font-size:8px;">−300 ₽</span></div>
-        </div>
-        <div class="phone-compare-row">
-          <div class="phone-compare-store">🟡 Яндекс Маркет</div>
-          <div class="phone-compare-price red">6 290 ₽ <span style="font-size:8px;">+800 ₽</span></div>
-        </div>
-        <div class="phone-compare-row">
-          <div class="phone-compare-store">🏬 Спортмастер</div>
-          <div class="phone-compare-price red">7 990 ₽ <span style="font-size:8px;">+2 500 ₽</span></div>
-        </div>
-      </div>
-      <div style="font-size:10px;color:#9CA3AF;margin-bottom:6px;">📊 История цены</div>
-      <div style="background:#1E1E2E;border-radius:8px;padding:8px;height:40px;display:flex;align-items:flex-end;gap:2px;">
-        <div style="background:#6B7280;width:12%;height:80%;border-radius:2px;"></div>
-        <div style="background:#6B7280;width:12%;height:90%;border-radius:2px;"></div>
-        <div style="background:#6B7280;width:12%;height:70%;border-radius:2px;"></div>
-        <div style="background:#6B7280;width:12%;height:85%;border-radius:2px;"></div>
-        <div style="background:#6B7280;width:12%;height:60%;border-radius:2px;"></div>
-        <div style="background:#8B5CF6;width:12%;height:35%;border-radius:2px;"></div>
-      </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <div class="how-icon">📱</div>
+      <h3>Показываем вам</h3>
+      <p>Все скидки собраны в удобном интерфейсе с фильтрами по категориям и магазинам</p>
     </div>
-    <div class="phone-label">Сравнение цен</div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <div class="how-icon">💰</div>
+      <h3>Экономите деньги</h3>
+      <p>Переходите по ссылке в магазин и покупаете по лучшей цене. Никаких переплат</p>
+    </div>
   </div>
 </section>
 
-<section class="features" id="features">
+<!-- Phone mockups -->
+<section class="phones-section fade-up">
+  <h2>Интерфейс приложения</h2>
+  <p class="section-sub">Минималистичный дизайн, быстрая навигация и все скидки на одном экране</p>
+  <div class="phones">
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-header">
+          <div class="phone-logo">Deal<span>Hunter</span></div>
+          <div class="phone-icons">
+            <div class="phone-icon">🕐</div>
+            <div class="phone-icon">🔔</div>
+          </div>
+        </div>
+        <div class="phone-cats">
+          <div class="phone-cat active">✨ Все</div>
+          <div class="phone-cat">🎮 Игры</div>
+          <div class="phone-cat">👕 Одежда</div>
+        </div>
+        <div style="font-size:9px;color:#FFD700;font-weight:800;margin-bottom:6px;">⚡ СКИДКА ДНЯ</div>
+        <div class="phone-deal">
+          <div class="phone-deal-top">
+            <div class="phone-deal-store">Epic Games</div>
+            <div class="phone-deal-badge">-100%</div>
+          </div>
+          <div class="phone-deal-title">The Ouroboros King</div>
+          <div><span class="phone-deal-price">Бесплатно</span><span class="phone-deal-old">899 ₽</span></div>
+        </div>
+        <div class="phone-section">🔥 Горящие скидки</div>
+        <div class="phone-deal">
+          <div class="phone-deal-top">
+            <div class="phone-deal-store">SuperStep</div>
+            <div class="phone-deal-badge">-50%</div>
+          </div>
+          <div class="phone-deal-title">Мужские кроссовки Anta AGOV2</div>
+          <div><span class="phone-deal-price">9 695 ₽</span><span class="phone-deal-old">19 390 ₽</span></div>
+        </div>
+        <div class="phone-deal">
+          <div class="phone-deal-top">
+            <div class="phone-deal-store">Steam</div>
+            <div class="phone-deal-badge">-75%</div>
+          </div>
+          <div class="phone-deal-title">Cyberpunk 2077</div>
+          <div><span class="phone-deal-price">499 ₽</span><span class="phone-deal-old">1 999 ₽</span></div>
+        </div>
+      </div>
+      <div class="phone-label">Главная</div>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-search">🔍 Кроссовки, игры, билеты...</div>
+        <div class="phone-filter-row">
+          <div class="phone-filter accent">Все ›</div>
+          <div class="phone-filter">💰 Цена</div>
+          <div class="phone-filter">По скидке</div>
+        </div>
+        <div class="phone-section">🔥 Популярное</div>
+        <div class="phone-deal">
+          <div class="phone-deal-top">
+            <div class="phone-deal-store">Ozon</div>
+            <div class="phone-deal-badge">-45%</div>
+          </div>
+          <div class="phone-deal-title">iPhone 15 Pro 256GB</div>
+          <div><span class="phone-deal-price">89 990 ₽</span><span class="phone-deal-old">159 990 ₽</span></div>
+        </div>
+        <div class="phone-deal">
+          <div class="phone-deal-top">
+            <div class="phone-deal-store">Love Republic</div>
+            <div class="phone-deal-badge">-40%</div>
+          </div>
+          <div class="phone-deal-title">Платье с пайетками</div>
+          <div><span class="phone-deal-price">5 990 ₽</span><span class="phone-deal-old">9 990 ₽</span></div>
+        </div>
+        <div class="phone-deal">
+          <div class="phone-deal-top">
+            <div class="phone-deal-store">Aviasales</div>
+            <div class="phone-deal-badge">🔥 Хит</div>
+          </div>
+          <div class="phone-deal-title">Москва → Сочи</div>
+          <div><span class="phone-deal-price">✈ 3 899 ₽</span></div>
+        </div>
+        <div class="phone-deal">
+          <div class="phone-deal-top">
+            <div class="phone-deal-store">Mi Shop</div>
+            <div class="phone-deal-badge">-30%</div>
+          </div>
+          <div class="phone-deal-title">Xiaomi 14T Pro</div>
+          <div><span class="phone-deal-price">39 990 ₽</span><span class="phone-deal-old">56 990 ₽</span></div>
+        </div>
+      </div>
+      <div class="phone-label">Поиск</div>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone">
+        <div style="font-size:10px;color:var(--dim);margin-bottom:8px;">← Назад</div>
+        <div style="background:var(--border);border-radius:12px;height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:10px;">👟</div>
+        <div class="phone-deal-store" style="margin-bottom:4px;">SUPERSTEP</div>
+        <div class="phone-deal-title" style="font-size:13px;margin-bottom:4px;">PUMA Speedcat OG</div>
+        <div style="margin-bottom:10px;"><span class="phone-deal-price" style="font-size:16px;">11 243 ₽</span><span class="phone-deal-old">14 990 ₽</span></div>
+        <div class="phone-compare">
+          <div class="phone-compare-title">🏪 Цены в других магазинах</div>
+          <div class="phone-compare-row">
+            <div class="phone-compare-store">🟦 Ozon</div>
+            <div class="phone-compare-price green">10 990 ₽</div>
+          </div>
+          <div class="phone-compare-row">
+            <div class="phone-compare-store">🟪 Wildberries</div>
+            <div class="phone-compare-price red">12 490 ₽</div>
+          </div>
+          <div class="phone-compare-row">
+            <div class="phone-compare-store">🟡 Яндекс Маркет</div>
+            <div class="phone-compare-price red">13 990 ₽</div>
+          </div>
+        </div>
+        <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">📊 История цены</div>
+        <div style="background:var(--border);border-radius:8px;padding:8px;height:40px;display:flex;align-items:flex-end;gap:2px;">
+          <div style="background:var(--dim);width:12%;height:80%;border-radius:2px;"></div>
+          <div style="background:var(--dim);width:12%;height:90%;border-radius:2px;"></div>
+          <div style="background:var(--dim);width:12%;height:70%;border-radius:2px;"></div>
+          <div style="background:var(--dim);width:12%;height:85%;border-radius:2px;"></div>
+          <div style="background:var(--dim);width:12%;height:60%;border-radius:2px;"></div>
+          <div style="background:var(--accent);width:12%;height:35%;border-radius:2px;"></div>
+        </div>
+      </div>
+      <div class="phone-label">Сравнение цен</div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features fade-up" id="features">
   <h2>Возможности</h2>
+  <p class="section-sub">Всё что нужно для умных покупок</p>
   <div class="grid">
     <div class="card">
       <div class="card-icon">🔥</div>
       <h3>Горящие скидки</h3>
-      <p>Скидки от 50% — видишь первым. Лучшая скидка дня каждый день на главном экране.</p>
+      <p>Скидки от 50% — видишь первым. Лучшая скидка дня выделена на главном экране каждый день.</p>
     </div>
     <div class="card">
       <div class="card-icon">🔔</div>
-      <h3>Уведомления о снижении цены</h3>
-      <p>Установи порог цены — мы отправим push когда товар подешевеет до нужной суммы.</p>
+      <h3>Push-уведомления</h3>
+      <p>Получай уведомления о новых горящих скидках прямо на телефон. Не пропустишь ничего важного.</p>
     </div>
     <div class="card">
       <div class="card-icon">🏪</div>
-      <h3>Сравнение цен</h3>
-      <p>Один товар — несколько магазинов. Сразу видно где дешевле: на Ozon, WB или Яндекс Маркете.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📊</div>
-      <h3>История цен</h3>
-      <p>График изменения цены — убедись что скидка настоящая, а не накрученная.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🔍</div>
-      <h3>Отслеживание по словам</h3>
-      <p>Добавь ключевые слова — получишь push когда появится новая скидка. PRO-функция.</p>
+      <h3>15+ магазинов</h3>
+      <p>Ozon, Wildberries, Steam, Aviasales, Lamoda, SuperStep и другие — все в одном месте.</p>
     </div>
     <div class="card">
       <div class="card-icon">🎮</div>
-      <h3>Игры бесплатно</h3>
-      <p>Раздачи в Steam, Epic Games — все бесплатные игры в одном месте. Не пропустишь ни одну.</p>
+      <h3>Бесплатные игры</h3>
+      <p>Раздачи в Steam и Epic Games — все бесплатные игры собраны автоматически. Не пропустишь ни одну.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✈️</div>
+      <h3>Путешествия</h3>
+      <p>Авиабилеты, поезда, отели и квартиры посуточно. Aviasales, Tutu.ru, Суточно.ру — всё сравним.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏆</div>
+      <h3>Геймификация</h3>
+      <p>Зарабатывай XP, открывай достижения и поднимайся в уровнях. Экономить — тоже игра.</p>
     </div>
   </div>
 </section>
 
-<section class="stores">
-  <h2>Магазины</h2>
-  <div class="store-list">
-    <div class="store-item">🟦 Ozon</div>
-    <div class="store-item">🟪 Wildberries</div>
-    <div class="store-item">✈️ Aviasales</div>
-    <div class="store-item">🎮 Steam</div>
-    <div class="store-item">⚡ Epic Games</div>
-    <div class="store-item">🏠 Авито Путешествия</div>
-    <div class="store-item">🟡 Яндекс Путешествия</div>
+<!-- Stores -->
+<section class="stores fade-up" id="stores">
+  <h2>Магазины-партнёры</h2>
+  <p class="section-sub">Мы собираем скидки из проверенных магазинов России</p>
+  <div class="store-categories">
+    <div class="store-cat active" onclick="filterStores('all')">Все</div>
+    <div class="store-cat" onclick="filterStores('market')">Маркетплейсы</div>
+    <div class="store-cat" onclick="filterStores('games')">Игры</div>
+    <div class="store-cat" onclick="filterStores('travel')">Путешествия</div>
+    <div class="store-cat" onclick="filterStores('fashion')">Одежда</div>
+    <div class="store-cat" onclick="filterStores('tech')">Техника</div>
+  </div>
+  <div class="store-grid" id="storeGrid">
+    <div class="store-chip" data-cat="market"><span class="emoji">🟦</span> Ozon</div>
+    <div class="store-chip" data-cat="market"><span class="emoji">🟪</span> Wildberries</div>
+    <div class="store-chip" data-cat="market"><span class="emoji">🟡</span> Яндекс Маркет</div>
+    <div class="store-chip" data-cat="market"><span class="emoji">🛍️</span> AliExpress</div>
+    <div class="store-chip" data-cat="games"><span class="emoji">🎮</span> Steam</div>
+    <div class="store-chip" data-cat="games"><span class="emoji">⚡</span> Epic Games</div>
+    <div class="store-chip" data-cat="games"><span class="emoji">🎯</span> GGSel</div>
+    <div class="store-chip" data-cat="travel"><span class="emoji">✈️</span> Aviasales</div>
+    <div class="store-chip" data-cat="travel"><span class="emoji">🚂</span> Tutu.ru</div>
+    <div class="store-chip" data-cat="travel"><span class="emoji">🏡</span> Суточно.ру</div>
+    <div class="store-chip" data-cat="travel"><span class="emoji">🏠</span> Avito Travel</div>
+    <div class="store-chip" data-cat="travel"><span class="emoji">🟡</span> Яндекс Путешествия</div>
+    <div class="store-chip" data-cat="fashion"><span class="emoji">👗</span> Lamoda</div>
+    <div class="store-chip" data-cat="fashion"><span class="emoji">👗</span> Love Republic</div>
+    <div class="store-chip" data-cat="fashion"><span class="emoji">👟</span> SuperStep</div>
+    <div class="store-chip" data-cat="tech"><span class="emoji">📱</span> МТС</div>
+    <div class="store-chip" data-cat="tech"><span class="emoji">💻</span> DNS</div>
+    <div class="store-chip" data-cat="tech"><span class="emoji">📱</span> Mi Shop</div>
+    <div class="store-chip" data-cat="market"><span class="emoji">🔑</span> Купикод</div>
   </div>
 </section>
 
+<!-- Reviews -->
+<section class="reviews fade-up">
+  <h2>Что говорят пользователи</h2>
+  <p class="section-sub">Отзывы наших первых пользователей</p>
+  <div class="review-grid">
+    <div class="review">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">Наконец-то все скидки в одном месте! Раньше мониторил Steam, Ozon и Aviasales по отдельности — теперь всё тут.</div>
+      <div class="review-author">
+        <div class="review-avatar">А</div>
+        <div>
+          <div class="review-name">Алексей</div>
+          <div class="review-date">Июнь 2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="review">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">Забрала 3 бесплатные игры в Epic Games которые бы пропустила. Уведомления реально работают, рекомендую!</div>
+      <div class="review-author">
+        <div class="review-avatar">М</div>
+        <div>
+          <div class="review-name">Мария</div>
+          <div class="review-date">Июнь 2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="review">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">Удобно что есть и путешествия и маркетплейсы. Нашёл билеты на 2000 дешевле чем искал напрямую в Aviasales.</div>
+      <div class="review-author">
+        <div class="review-avatar">Д</div>
+        <div>
+          <div class="review-name">Дмитрий</div>
+          <div class="review-date">Июнь 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq fade-up" id="faq">
+  <h2>Частые вопросы</h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Это бесплатно?</div>
+    <div class="faq-a">Да, DealHunter полностью бесплатный. Мы зарабатываем на партнёрских комиссиях от магазинов — для вас цена товара не меняется.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Как часто обновляются скидки?</div>
+    <div class="faq-a">Каждые 6 часов наши скрипты автоматически сканируют все магазины и добавляют новые предложения. Горящие скидки появляются в реальном времени.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Нужно ли устанавливать приложение?</div>
+    <div class="faq-a">Нет, веб-версия работает прямо в браузере на любом устройстве. Также можно добавить на главный экран как PWA — будет работать как обычное приложение. Скоро появится и в RuStore.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Какие магазины поддерживаются?</div>
+    <div class="faq-a">Ozon, Wildberries, Яндекс Маркет, AliExpress, Steam, Epic Games, Aviasales, Tutu.ru, Суточно.ру, Lamoda, Love Republic, SuperStep, Mi Shop, МТС, DNS и другие. Список постоянно расширяется.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Цены точные?</div>
+    <div class="faq-a">Мы берём цены напрямую с сайтов магазинов. Цены могут немного отличаться в зависимости от региона и наличия персональных скидок в вашем аккаунте.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta fade-up">
+  <h2>Начни экономить сегодня</h2>
+  <p>548+ скидок ждут тебя прямо сейчас</p>
+  <div class="cta-buttons">
+    <a href="https://pwa.dealhunterapp.online" class="btn btn-primary">🌐 Открыть DealHunter</a>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer class="footer">
+  <div class="footer-links">
+    <a href="https://pwa.dealhunterapp.online">Веб-версия</a>
+    <a href="#features">Возможности</a>
+    <a href="#stores">Магазины</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://ultiyskadbkrdenzxyym.supabase.co/functions/v1/privacy">Политика конфиденциальности</a>
+  </div>
   <p>DealHunter &copy; 2026. Агрегатор скидок — мы не продаём товары, а помогаем найти лучшую цену.</p>
-  <p style="margin-top: 8px;"><a href="https://ultiyskadbkrdenzxyym.supabase.co/functions/v1/privacy">Политика конфиденциальности</a></p>
+  <p style="margin-top:8px;font-size:12px;">Сервис содержит партнёрские ссылки. При покупке по нашей ссылке мы получаем комиссию без увеличения цены для вас.</p>
 </footer>
+
+<script>
+// Navbar scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Fade-up on scroll
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+// Store category filter
+function filterStores(cat){
+  document.querySelectorAll('.store-cat').forEach(c=>c.classList.toggle('active',
+    (cat==='all'&&c.textContent==='Все')||c.getAttribute('onclick')?.includes("'"+cat+"'")));
+  document.querySelectorAll('.store-chip').forEach(chip=>{
+    chip.style.display=(cat==='all'||chip.dataset.cat===cat)?'flex':'none';
+  });
+}
+</script>
 
 </body>
 </html>
